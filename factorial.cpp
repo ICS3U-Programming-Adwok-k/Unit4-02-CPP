@@ -18,23 +18,26 @@ int main() {
     std::cin >> user_number;
 
     try {
+        float user_float = stof(user_number);
         user_num = stoi(user_number);
-
-        if (user_num < 0) {
+        
+        if (user_float != user_num) {
+            std::cout << "Please enter an integer.\n";
+        } else if (user_num < 0) {
             std::cout << "Please enter a positive number." << std::endl;
             // if the condition is true the program stops
             return 0;
+        }else {
+             do {
+                // we shall increment by 1 each time
+                counter = counter + 1;
+                // To get the factorial we have to multiply
+                // the factorial with the counter
+                factorial = factorial * counter;
+                // Display the counter! = factorial(factorial*counter)
+                std::cout << counter << "! = " << factorial << std::endl;
+            } while (counter < user_num);   
         }
-
-        do {
-            // we shall increment by 1 each time
-            counter = counter + 1;
-            // To get the factorial we have to multiply
-            // the factorial with the counter
-            factorial = factorial * counter;
-            // Display the counter! = factorial(factorial*counter)
-            std::cout << counter << "! = " << factorial << std::endl;
-        } while (counter < user_num);
     } catch (std::invalid_argument) {
         std::cout << "Please enter a valid number." << std::endl;
     }
